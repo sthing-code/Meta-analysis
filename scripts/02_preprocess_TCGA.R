@@ -132,7 +132,7 @@ preprocess_project <- function(project) {
 # ── Run ───────────────────────────────────────────────────────────────────────
 
 projects_to_run <- c(
-  "TCGA-COAD",
+  # "TCGA-COAD" 
   "TCGA-BRCA"
   # "TCGA-PAAD"
   # "TCGA-PRAD"

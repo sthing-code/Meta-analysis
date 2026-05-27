@@ -139,7 +139,7 @@ depleted in CRC (protective commensals). Sources used are listed per species.
 
 | Species | Mechanism | Citation |
 |---|---|---|
-| *Fusobacterium nucleatum* | FadA adhesin activates Wnt/β-catenin; NF-κB-driven inflammation | Bautista et al., 2026; Dalal et al., 2021; Kostic et al., 2013; Rubinstein et al., 2013; Tahara et al., 2014;Wang et al., 2024 |
+| *Fusobacterium nucleatum* | FadA adhesin activates Wnt/β-catenin; NF-κB-driven inflammation | Bautista et al., 2026; Dalal et al., 2021; Kostic et al., 2013; Rubinstein et al., 2013; Tahara et al., 2014; Wang et al., 2024 |
 | *Escherichia coli* (pks⁺) | Colibactin genotoxin causes DNA double-strand breaks and chromosomal instability | Bautista et al., 2026; Dalal et al., 2021; Kostic et al., 2013 |
 | *Bacteroides fragilis* (ETBF) | BFT (fragilysin) cleaves E-cadherin; activates STAT3 and Wnt signalling | Bautista et al., 2026; Dalal et al., 2021 |
 | *Streptococcus gallolyticus* | COX-2 activation; suppresses apoptosis; longstanding clinical CRC association | Dalal et al., 2021 |
@@ -178,7 +178,7 @@ The BRCA benchmark list differs fundamentally from COAD. The dominant mechanism 
 | *Bacteroides fragilis* | Broadest estrobolome enzyme activity (β-glucuronidase + sulfatase + 3β-HSD + 17β-HSD) | Strong | Larnder et al. 2025 |
 | *Fusobacterium nucleatum* | Enriched in breast tumour tissue; pro-inflammatory; prognostic risk factor | Moderate | Sheng et al. 2024 |
 | *Lactobacillus* spp. | Enriched in breast tumour tissue; β-glucuronidase activity | Moderate | Sheng et al. 2024; Larnder et al. 2025 |
-| *Staphylococcus* spp. | Enriched in breast tumour tissue !known sequencing contaminant! | Moderate/caveat | Sheng et al. 2024 |
+| *Staphylococcus* spp. | Enriched in breast tumour tissue !known sequencing contaminant — interpret with caution! | Moderate/caveat | Sheng et al. 2024 |
 | *Ruminococcus* spp. | β-glucuronidase activity; **conflicting evidence** across cohorts | Mixed | Larnder et al. 2025; Mahno et al. 2024 |
 | *Klebsiella* spp. | β-glucuronidase activity; enriched in cases | Moderate | Mahno et al. 2024 |
 | *Citrobacter* spp. | β-glucuronidase activity; enriched in cases | Moderate | Larnder et al. 2025 |
