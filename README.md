@@ -87,7 +87,7 @@ manuscript figures.
 Run scripts in order:
 
 ```r
-source("scripts/01_download_TCGA.R")      # ~15–30 min depending on connection
+source("scripts/01_download_TCGA.R")      
 source("scripts/02_preprocess_TCGA.R")
 # Manually download TCMbio data — see instructions in script 03
 source("scripts/03_preprocess_TCMbio.R")
@@ -125,23 +125,6 @@ R version: ≥ 4.3.0 recommended.
 **Flagging logic:**
 - IGFBP7, Galectin-1: stars on cells where r > 0.20 and q < 0.05
 - Cathepsins: stars on cells where r < −0.20 and q < 0.05
-
----
-
-## Literature Benchmarks (Colon)
-
-The following bacteria have published CRC-association evidence and serve as
-positive controls. Correlations involving these species are flagged as
-**literature-supported**; all others are flagged as **novel observations**.
-
-- *Fusobacterium nucleatum* — most validated CRC intratumoral bacterium
-- *Parvimonas micra*
-- *Peptostreptococcus stomatis*
-- *Solobacterium moorei*
-- *Bacteroides fragilis* (enterotoxigenic ETBF)
-- *Campylobacter* spp.
-- *Leptotrichia* spp.
-- *Porphyromonas gingivalis*
 
 ---
 
