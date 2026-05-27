@@ -234,14 +234,14 @@ PAAD has three defining microbial features distinct from COAD and BRCA:
 
 | Species/Group | Mechanism | Citation |
 |---|---|---|
-| *Mycoplasma* spp. | Metabolises and inactivates gemcitabine intracellularly; key determinant of chemotherapy resistance and treatment failure in PAAD | Geller et al. *Science* 2017, cited in Sheng et al. 2024 |
+| *Mycoplasma* spp. | Metabolises and inactivates gemcitabine intracellularly; key determinant of chemotherapy resistance and treatment failure in PAAD | Geller et al., 2017, cited in Sheng et al. 2024 |
 | Gammaproteobacteria (class) | Cytidine deaminase activity inactivates gemcitabine within the tumour microenvironment; broad class-level benchmark for drug resistance | Bautista et al. 2026 |
 
 ### Section C — Antitumour: TMAO-producing bacteria (cross-cancer bridge with BRCA)
 
 | Species/Genus | Mechanism | Citation |
 |---|---|---|
-| Clostridiales order (*Blautia*, *Dorea*, *Ruminococcus*, *Roseburia*, *Bacillus*) | Produce TMAO via choline trimethylamine-lyase; TMAO activates type I IFN in macrophages → dendritic cell and cytotoxic T cell activation → sensitisation to immune checkpoint inhibitors in PDAC; high plasma TMAO correlates with better ICI response | Mirji et al. *Sci Immunol.* 2022, cited in Liu et al. 2023; W. Zhang et al. 2024 |
+| Clostridiales order (*Blautia*, *Dorea*, *Ruminococcus*, *Roseburia*, *Bacillus*) | Produce TMAO via choline trimethylamine-lyase; TMAO activates type I IFN in macrophages → dendritic cell and cytotoxic T cell activation → sensitisation to immune checkpoint inhibitors in PDAC; high plasma TMAO correlates with better ICI response | Mirji et al., 2022, cited in Liu et al. 2023 and W. Zhang et al. 2024 |
 
 > **Cross-cancer note:** This is the same Clostridiales–TMAO mechanism documented in BRCA
 > (Wang et al. *Cell Metabolism* 2022). If these genera show consistent positive gene correlations
