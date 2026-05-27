@@ -261,8 +261,8 @@ make_heatmaps_for_cancer <- function(cancer_type) {
   draw_correlation_heatmap(cor_data$r015, cancer_type, r_threshold = 0.15)
 }
 
-make_heatmaps_for_cancer("colon")
-# make_heatmaps_for_cancer("breast")
+# make_heatmaps_for_cancer("colon")
+make_heatmaps_for_cancer("breast")
 # make_heatmaps_for_cancer("pancreatic")
 # make_heatmaps_for_cancer("prostate")
 

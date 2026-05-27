@@ -123,8 +123,8 @@ correlate_cancer <- function(cancer_type) {
 
 # ── Run ───────────────────────────────────────────────────────────────────────
 
-correlate_cancer("colon")
-# correlate_cancer("breast")
+# correlate_cancer("colon")
+correlate_cancer("breast")
 # correlate_cancer("pancreatic")
 # correlate_cancer("prostate")
 

@@ -202,8 +202,8 @@ run_threeway_for_cancer <- function(cancer_type) {
   }
 }
 
-run_threeway_for_cancer("colon")
-# run_threeway_for_cancer("breast")
+# run_threeway_for_cancer("colon")
+run_threeway_for_cancer("breast")
 # run_threeway_for_cancer("pancreatic")
 # run_threeway_for_cancer("prostate")
 

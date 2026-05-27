@@ -153,8 +153,8 @@ preprocess_tcmbio <- function(cancer_type, min_prev = 0.10) {
 
 # ── Run ───────────────────────────────────────────────────────────────────────
 
-preprocess_tcmbio("colon")
-# preprocess_tcmbio("breast")
+# preprocess_tcmbio("colon")
+preprocess_tcmbio("breast")
 # preprocess_tcmbio("pancreatic")
 # preprocess_tcmbio("prostate")
 
