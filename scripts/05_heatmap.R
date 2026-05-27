@@ -76,6 +76,16 @@ draw_correlation_heatmap <- function(cor_obj,
   r_mat <- cor_obj$r
   q_mat <- cor_obj$q
 
+  # Clean row names: strip s__ prefix, replace underscores with spaces
+  # for manuscript-quality species labels
+  clean_names <- function(x) {
+    x <- sub("^s__", "", x)
+    gsub("_", " ", x)
+  }
+  rownames(r_mat) <- clean_names(rownames(r_mat))
+  rownames(q_mat) <- clean_names(rownames(q_mat))
+  names(cor_obj$benchmark_flag) <- clean_names(names(cor_obj$benchmark_flag))
+
   if (nrow(r_mat) == 0) {
     message("  No bacteria pass the r = ", r_threshold, " threshold for ", project,
             " — skipping heatmap.")
@@ -168,10 +178,10 @@ draw_correlation_heatmap <- function(cor_obj,
     cluster_columns        = FALSE,       # columns fixed to biological order
     show_row_names         = TRUE,
     show_column_names      = TRUE,
-    row_names_gp           = gpar(fontsize = 7, fontface = "italic"),
+    row_names_gp           = gpar(fontsize = 6.5, fontface = "italic"),
     column_names_gp        = gpar(fontsize = 8, fontface = "italic"),
     column_names_rot       = 45,
-    column_names_max_height = unit(3, "cm"),
+    column_names_max_height = unit(4, "cm"),
     row_names_side         = "left",
     cell_fun               = cell_fun,
     top_annotation         = col_anno,
