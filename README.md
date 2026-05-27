@@ -210,3 +210,56 @@ Several genera (*Ruminococcus*, *Fusobacterium*, *Prevotella*, *Faecalibacterium
 show opposing associations in different breast cancer cohorts (Mahno et al. 2024). In the heatmap
 annotation, these are flagged "literature-supported" but the manuscript methods section should
 acknowledge this heterogeneity explicitly.
+
+---
+
+## Literature Benchmarks (Pancreatic — PAAD)
+
+PAAD has three defining microbial features distinct from COAD and BRCA:
+(1) **oral-to-pancreas bacterial translocation** — oral pathobionts enriched in tumour tissue and early cystic precursors;
+(2) **intratumoral gemcitabine inactivation** — *Mycoplasma* and Gammaproteobacteria directly metabolise the standard chemotherapy drug;
+(3) **TMAO anti-tumour immunity** — the same Clostridiales–TMAO mechanism from BRCA also operates in PDAC.
+
+### Section A — Pro-tumorigenic: oral-to-pancreas translocation
+
+| Species/Genus | Mechanism | Citation |
+|---|---|---|
+| *Porphyromonas gingivalis* | Promotes PDAC progression in K-rasG12D transgenic mouse models; induces immunosuppressive TME; enriched in early cystic precursors to invasive PDAC; pro-tumorigenic effects attenuated by *Lactobacillus* | Sheng et al. 2024; Wang et al. 2024 |
+| *Fusobacterium nucleatum* | Oral pathobiont enriched in PAAD tumour tissue; pro-inflammatory microenvironment; pan-cancer prognostic risk factor | Sheng et al. 2024 |
+| *Prevotella oris* | Oral pathobiont; enriched in early cystic PDAC precursors; shared prognostic risk bacterium across multiple cancer types | Sheng et al. 2024 |
+| *Prevotella melaninogenica* | Oral pathobiont; shared pan-cancer prognostic risk bacterium | Sheng et al. 2024 |
+| *Veillonella parvula* | Oral commensal; shared pan-cancer prognostic risk bacterium | Sheng et al. 2024 |
+
+### Section B — Pro-tumorigenic: gemcitabine inactivation
+
+| Species/Group | Mechanism | Citation |
+|---|---|---|
+| *Mycoplasma* spp. | Metabolises and inactivates gemcitabine intracellularly; key determinant of chemotherapy resistance and treatment failure in PAAD | Geller et al. *Science* 2017, cited in Sheng et al. 2024 |
+| Gammaproteobacteria (class) | Cytidine deaminase activity inactivates gemcitabine within the tumour microenvironment; broad class-level benchmark for drug resistance | Bautista et al. 2026 |
+
+### Section C — Antitumour: TMAO-producing bacteria (cross-cancer bridge with BRCA)
+
+| Species/Genus | Mechanism | Citation |
+|---|---|---|
+| Clostridiales order (*Blautia*, *Dorea*, *Ruminococcus*, *Roseburia*, *Bacillus*) | Produce TMAO via choline trimethylamine-lyase; TMAO activates type I IFN in macrophages → dendritic cell and cytotoxic T cell activation → sensitisation to immune checkpoint inhibitors in PDAC; high plasma TMAO correlates with better ICI response | Mirji et al. *Sci Immunol.* 2022, cited in Liu et al. 2023; W. Zhang et al. 2024 |
+
+> **Cross-cancer note:** This is the same Clostridiales–TMAO mechanism documented in BRCA
+> (Wang et al. *Cell Metabolism* 2022). If these genera show consistent positive gene correlations
+> in both BRCA and PAAD heatmaps, this constitutes a strong cross-cancer mechanistic story.
+
+### Section D — Protective benchmark
+
+| Species/Genus | Mechanism | Citation |
+|---|---|---|
+| *Lactobacillus* spp. | Attenuates pro-tumorigenic effects of *P. gingivalis* in pancreatic cancer models; dietary *Lactobacillus*-derived exopolysaccharides also enhance immune checkpoint blockade efficacy | Wang et al. 2024; Liu et al. 2023 |
+
+### Evidence confidence summary
+
+| Category | Confidence | Basis |
+|---|---|---|
+| *P. gingivalis* pro-tumorigenic | High | K-rasG12D mouse model + pan-cancer atlas |
+| *Mycoplasma* gemcitabine resistance | High | Mechanistic *Science* paper + two independent reviews |
+| Gammaproteobacteria gemcitabine resistance | High | Mechanistic evidence, Bautista et al. 2026 |
+| Oral microbiota group (translocation) | Moderate | Pan-cancer atlas; no individual species RCT |
+| TMAO / Clostridiales antitumour | Moderate–High | PDAC mouse model; cross-validated in BRCA |
+| *Lactobacillus* protective | Moderate | Mechanistic mouse model; species unspecified |
