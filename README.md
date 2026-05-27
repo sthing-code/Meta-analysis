@@ -8,10 +8,10 @@ The primary output is a series of Pearson correlation heatmaps, one per cancer t
 manuscript figures.
 
 **Cancer types covered (in order):**
-- Colon adenocarcinoma (COAD) — primary analysis
-- Breast invasive carcinoma (BRCA) — extension
-- Pancreatic adenocarcinoma (PAAD) — extension
-- Prostate adenocarcinoma (PRAD) — extension
+- Colon adenocarcinoma (COAD) 
+- Breast invasive carcinoma (BRCA) 
+- Pancreatic adenocarcinoma (PAAD) 
+- Prostate adenocarcinoma (PRAD) 
 
 ---
 
@@ -87,7 +87,7 @@ manuscript figures.
 Run scripts in order:
 
 ```r
-source("scripts/01_download_TCGA.R")      # ~15–30 min depending on connection
+source("scripts/01_download_TCGA.R")      
 source("scripts/02_preprocess_TCGA.R")
 # Manually download TCMbio data — see instructions in script 03
 source("scripts/03_preprocess_TCMbio.R")
