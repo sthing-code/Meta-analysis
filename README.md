@@ -8,10 +8,10 @@ The primary output is a series of Pearson correlation heatmaps, one per cancer t
 manuscript figures.
 
 **Cancer types covered (in order):**
-- Colon adenocarcinoma (COAD) — primary analysis
-- Breast invasive carcinoma (BRCA) — extension
-- Pancreatic adenocarcinoma (PAAD) — extension
-- Prostate adenocarcinoma (PRAD) — extension
+- Colon adenocarcinoma (COAD) 
+- Breast invasive carcinoma (BRCA) 
+- Pancreatic adenocarcinoma (PAAD) 
+- Prostate adenocarcinoma (PRAD) 
 
 ---
 
