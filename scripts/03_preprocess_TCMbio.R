@@ -99,9 +99,10 @@ preprocess_tcmbio <- function(cancer_type, min_prev = 0.10) {
 
   message("  Matrix after orientation: ", nrow(mat), " species × ", ncol(mat), " samples")
 
-  # Ensure numeric
-  mat <- apply(mat, 2, as.numeric)
-  rownames(mat) <- rownames(mat)  # preserve after apply
+  # Ensure numeric — apply() drops rownames so we save and restore them
+  saved_rownames <- rownames(mat)
+  mat            <- apply(mat, 2, as.numeric)
+  rownames(mat)  <- saved_rownames
 
   # ── Standardise sample barcodes to 15 characters ────────────────────────────
   colnames(mat) <- sample_barcode(colnames(mat))

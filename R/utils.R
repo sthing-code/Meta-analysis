@@ -62,16 +62,31 @@ CANCER_CONFIG <- list(
 
 BENCHMARK_BACTERIA <- list(
   colon = c(
+    # ── Enriched in CRC (pro-tumorigenic) ──────────────────────────────────
+    # Kostic et al. Genome Res 2012; Rubinstein et al. Cell Host Microbe 2013
     "Fusobacterium nucleatum",
+    # Yu et al. Gut 2017; Proctor et al. NAR Cancer 2021
     "Parvimonas micra",
     "Peptostreptococcus stomatis",
     "Solobacterium moorei",
+    # Dalal et al. 2021; Wu et al. Nat Med 2004
     "Bacteroides fragilis",
-    "Campylobacter concisus",
-    "Campylobacter showae",
-    "Leptotrichia buccalis",
+    # Dalal et al. 2021
+    "Streptococcus gallolyticus",
+    "Enterococcus faecalis",
+    "Peptostreptococcus anaerobius",
+    "Helicobacter pylori",
+    "Clostridium septicum",
+    "Salmonella enterica",
+    # Bautista et al. 2026; Sheng et al. 2024
     "Porphyromonas gingivalis",
-    "Fusobacterium hwasookii"
+    # ── Depleted in CRC (protective commensals) ────────────────────────────
+    # Flagged as negative controls — strong negative correlation expected
+    # Bautista et al. 2026; Cao et al. 2025
+    "Faecalibacterium prausnitzii",
+    # Bautista et al. 2026
+    "Roseburia intestinalis",
+    "Roseburia hominis"
   ),
   breast = c(
     "Fusobacterium nucleatum",
@@ -142,8 +157,11 @@ filter_by_prevalence <- function(mat, min_prev = 0.10) {
 # ── Correlation utilities ─────────────────────────────────────────────────────
 
 #' Compute Pearson r and two-sided p-value between two numeric vectors.
+#' Returns NA silently if fewer than 10 finite paired observations exist.
 pearson_pair <- function(x, y) {
-  ct <- cor.test(x, y, method = "pearson")
+  valid <- is.finite(x) & is.finite(y)
+  if (sum(valid) < 10) return(c(r = NA_real_, p = NA_real_))
+  ct <- cor.test(x[valid], y[valid], method = "pearson")
   c(r = unname(ct$estimate), p = ct$p.value)
 }
 
