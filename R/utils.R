@@ -89,9 +89,40 @@ BENCHMARK_BACTERIA <- list(
     "Roseburia hominis"
   ),
   breast = c(
+    # ── Enriched in breast cancer / estrobolome-active ─────────────────────
+    # Larnder et al. 2025; Mahno et al. 2024; Sheng et al. 2024
+    "Escherichia coli",
+    # Larnder et al. 2025 — broadest estrobolome enzyme activity
+    "Bacteroides fragilis",
+    # Sheng et al. 2024
     "Fusobacterium nucleatum",
-    "Methylobacterium radiotolerans",
-    "Sphingomonas yanoikuyae"
+    "Lactobacillus iners",
+    "Staphylococcus aureus",       # contamination caveat — flag in figure
+    "Staphylococcus epidermidis",  # contamination caveat — flag in figure
+    # Mahno et al. 2024; Larnder et al. 2025 (conflicting evidence)
+    "Ruminococcus gnavus",
+    # Larnder et al. 2025
+    "Klebsiella pneumoniae",
+    "Citrobacter freundii",
+    "Enterobacter hormaechei",
+    # Sheng et al. 2024 — also top IGFBP7 correlator in COAD (cross-cancer interest)
+    "Sphingomonas panacisoli",
+    "Sphingomonas paucimobilis",
+    # ── Depleted in breast cancer / protective ──────────────────────────────
+    # Ruo et al. 2021; Larnder et al. 2025
+    "Faecalibacterium prausnitzii",
+    # Larnder et al. 2025
+    "Roseburia inulinivorans",
+    "Roseburia hominis",
+    "Roseburia intestinalis",
+    "Bifidobacterium longum",
+    "Bifidobacterium adolescentis",
+    "Collinsella aerofaciens",
+    # ── TMAO-producing Clostridiales — antitumour in TNBC ──────────────────
+    # Wang et al. 2022 Cell Metabolism — TMAO → pyroptosis → CD8+ T cells
+    "Blautia obeum",
+    "Dorea longicatena",
+    "Ruminococcus torques"
   ),
   pancreatic = c(
     "Fusobacterium nucleatum",
