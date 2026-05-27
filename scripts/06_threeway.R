@@ -112,9 +112,10 @@ run_threeway_axis <- function(cancer_type, axis_name,
     mutate(
       gene_type   = ifelse(gene == axis$primary, "Primary", "Downstream"),
       sig         = !is.na(q) & q < q_threshold,
-      evidence    = ifelse(bacterium %in% BENCHMARK_BACTERIA[[cancer_type]],
-                           "Literature-supported", "Novel"),
-      label_bact  = ifelse(abs(r) >= 0.25 & sig, bacterium, NA_character_)
+      evidence    = sapply(bacterium, function(b) flag_bacterium(b, cancer_type)),
+      label_bact  = ifelse(abs(r_primary) >= 0.25 & abs(r) >= 0.20 & sig,
+                           sub("^s__", "", gsub("_", " ", bacterium)),
+                           NA_character_)
     )
 
   # ── Bubble plot ───────────────────────────────────────────────────────────────
@@ -126,7 +127,10 @@ run_threeway_axis <- function(cancer_type, axis_name,
 
   downstream_df <- df %>%
     filter(gene != axis$primary) %>%
-    left_join(primary_r, by = c("bacterium", "evidence"))
+    left_join(primary_r, by = c("bacterium", "evidence")) %>%
+    mutate(
+      bacterium_clean = sub("^s__", "", gsub("_", " ", bacterium))
+    )
 
   if (nrow(downstream_df) == 0 || length(unique(downstream_df$gene)) == 0) {
     message("  No downstream gene data available for ", axis$label)
@@ -134,7 +138,8 @@ run_threeway_axis <- function(cancer_type, axis_name,
   }
 
   p <- ggplot(downstream_df,
-              aes(x = r_primary, y = r, size = abs(r), colour = evidence)) +
+              aes(x = r_primary, y = r, size = abs(r),
+                  colour = evidence)) +
     geom_hline(yintercept = 0, linetype = "dashed", colour = "grey60", linewidth = 0.4) +
     geom_vline(xintercept = 0, linetype = "dashed", colour = "grey60", linewidth = 0.4) +
     geom_hline(yintercept =  c(-r_primary, r_primary),
@@ -152,10 +157,13 @@ run_threeway_axis <- function(cancer_type, axis_name,
     ) +
     scale_size_continuous(range = c(1.5, 6), guide = "none") +
     scale_colour_manual(
-      values = c("Literature-supported" = FLAG_COLOURS["literature"],
-                 "Novel"                = FLAG_COLOURS["novel"]),
-      name   = "Evidence"
+      values = c("literature-supported" = unname(FLAG_COLOURS["literature"]),
+                 "novel"                = unname(FLAG_COLOURS["novel"])),
+      name   = "Evidence",
+      labels = c("literature-supported" = "Literature-supported",
+                 "novel"                = "Novel")
     ) +
+    guides(colour = guide_legend(override.aes = list(size = 4))) +
     facet_wrap(~ gene, scales = "free_y") +
     labs(
       x        = paste0("r (bacterium × ", axis$primary, ")"),
@@ -174,7 +182,7 @@ run_threeway_axis <- function(cancer_type, axis_name,
                         paste0("threeway_", axis_name, "_", project))
 
   fig_h <- 5
-  fig_w <- 4 * length(unique(downstream_df$gene))
+  fig_w <- max(8, 4 * length(unique(downstream_df$gene)))
 
   ggsave(paste0(base_fn, ".pdf"), p, width = fig_w, height = fig_h)
   ggsave(paste0(base_fn, ".png"), p, width = fig_w, height = fig_h, dpi = 300)
