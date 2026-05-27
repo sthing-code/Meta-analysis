@@ -8,10 +8,10 @@ The primary output is a series of Pearson correlation heatmaps, one per cancer t
 manuscript figures.
 
 **Cancer types covered (in order):**
-- Colon adenocarcinoma (COAD) 
-- Breast invasive carcinoma (BRCA) 
-- Pancreatic adenocarcinoma (PAAD) 
-- Prostate adenocarcinoma (PRAD) 
+- Colon adenocarcinoma (COAD) — primary analysis
+- Breast invasive carcinoma (BRCA) — extension
+- Pancreatic adenocarcinoma (PAAD) — extension
+- Prostate adenocarcinoma (PRAD) — extension
 
 ---
 
@@ -87,7 +87,7 @@ manuscript figures.
 Run scripts in order:
 
 ```r
-source("scripts/01_download_TCGA.R")      
+source("scripts/01_download_TCGA.R")      # ~15–30 min depending on connection
 source("scripts/02_preprocess_TCGA.R")
 # Manually download TCMbio data — see instructions in script 03
 source("scripts/03_preprocess_TCMbio.R")
@@ -125,6 +125,44 @@ R version: ≥ 4.3.0 recommended.
 **Flagging logic:**
 - IGFBP7, Galectin-1: stars on cells where r > 0.20 and q < 0.05
 - Cathepsins: stars on cells where r < −0.20 and q < 0.05
+
+---
+
+## Literature Benchmarks (Colon)
+
+Correlations involving the species below are flagged as **literature-supported**
+in the heatmap annotation; all others are flagged as **novel observations**.
+The list is divided into bacteria enriched in CRC (pro-tumorigenic) and bacteria
+depleted in CRC (protective commensals). Sources used are listed per species.
+
+### Enriched in CRC
+
+| Species | Mechanism | Citation |
+|---|---|---|
+| *Fusobacterium nucleatum* | FadA adhesin activates Wnt/β-catenin; NF-κB-driven inflammation | Kostic et al., *Genome Res* 2012; Rubinstein et al., *Cell Host Microbe* 2013 |
+| *Escherichia coli* (pks⁺) | Colibactin genotoxin causes DNA double-strand breaks and chromosomal instability | Nougayrède et al., *Science* 2006; Bautista et al., 2026 |
+| *Bacteroides fragilis* (ETBF) | BFT (fragilysin) cleaves E-cadherin; activates STAT3 and Wnt signalling | Wu et al., *Nat Med* 2004; Bautista et al., 2026 |
+| *Streptococcus gallolyticus* | COX-2 activation; suppresses apoptosis; longstanding clinical CRC association | Dalal et al., 2021 |
+| *Enterococcus faecalis* | Extracellular ROS production; DNA damage and chromosomal instability | Dalal et al., 2021 |
+| *Peptostreptococcus anaerobius* | TLR2/TLR4 activation; elevated ROS and intracellular cholesterol; promotes dysplasia | Dalal et al., 2021; Liu et al., 2023 |
+| *Peptostreptococcus stomatis* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017 |
+| *Parvimonas micra* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017; Proctor et al., *NAR Cancer* 2021 |
+| *Solobacterium moorei* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017 |
+| *Helicobacter pylori* | Pro-inflammatory cytokines (IL-1, IL-6, TNF-α); independent adenoma/CRC risk factor | Dalal et al., 2021 |
+| *Clostridium septicum* | α-toxin activates MAPK signalling; associated with occult colonic malignancy | Dalal et al., 2021 |
+| *Salmonella enterica* | AvrA effector activates β-catenin and STAT3; flagellin antibodies elevated in CRC | Dalal et al., 2021 |
+| *Porphyromonas gingivalis* | Immune suppression; promotes epithelial–mesenchymal transition (EMT) | Bautista et al., 2026; Sheng et al., 2024 |
+
+### Depleted in CRC (protective commensals)
+
+These species are expected to show **negative** correlations with pro-tumorigenic
+genes and are flagged as literature-supported negative controls.
+
+| Species | Mechanism | Citation |
+|---|---|---|
+| *Faecalibacterium prausnitzii* | Major butyrate producer; anti-inflammatory; consistently depleted in CRC | Bautista et al., 2026; Cao et al., 2025 |
+| *Roseburia intestinalis* | Butyrate producer; loss characteristic of CRC-associated dysbiosis | Bautista et al., 2026 |
+| *Roseburia hominis* | Butyrate producer; loss characteristic of CRC-associated dysbiosis | Bautista et al., 2026 |
 
 ---
 
