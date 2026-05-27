@@ -126,8 +126,8 @@ draw_correlation_heatmap <- function(cor_obj,
     Evidence = flags_aligned,
     col = list(
       Evidence = c(
-        "literature-supported" = FLAG_COLOURS["literature"],
-        "novel"                = FLAG_COLOURS["novel"]
+        "literature-supported" = unname(FLAG_COLOURS["literature"]),
+        "novel"                = unname(FLAG_COLOURS["novel"])
       )
     ),
     annotation_name_gp = gpar(fontsize = 8),
@@ -171,6 +171,7 @@ draw_correlation_heatmap <- function(cor_obj,
     row_names_gp           = gpar(fontsize = 7, fontface = "italic"),
     column_names_gp        = gpar(fontsize = 8, fontface = "italic"),
     column_names_rot       = 45,
+    column_names_max_height = unit(3, "cm"),
     row_names_side         = "left",
     cell_fun               = cell_fun,
     top_annotation         = col_anno,
@@ -211,8 +212,8 @@ draw_correlation_heatmap <- function(cor_obj,
                          paste0("heatmap_", project, "_pearson_r", r_str))
 
   # Compute figure dimensions: scale with number of bacteria
-  fig_h <- max(6, 2 + nrow(r_mat) * 0.18)
-  fig_w <- 8
+  fig_h <- max(7, 2.5 + nrow(r_mat) * 0.18)
+  fig_w <- 10
 
   # PDF (vector — for manuscript submission)
   pdf(paste0(base_fn, ".pdf"), width = fig_w, height = fig_h)

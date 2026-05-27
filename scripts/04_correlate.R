@@ -68,10 +68,11 @@ correlate_cancer <- function(cancer_type) {
   message("  Bacteria retained after |r| > 0.15 filter: ", nrow(cor_r015$r))
 
   # ── Add literature benchmark annotation ──────────────────────────────────────
-  benchmarks <- BENCHMARK_BACTERIA[[cancer_type]]
+  # Uses flag_bacterium() from utils.R which normalises s__Genus_species format
   add_benchmark_flag <- function(cor_obj) {
-    flags <- ifelse(rownames(cor_obj$r) %in% benchmarks,
-                    "literature-supported", "novel")
+    flags <- sapply(rownames(cor_obj$r),
+                    function(b) flag_bacterium(b, cancer_type),
+                    USE.NAMES = TRUE)
     cor_obj$benchmark_flag <- flags
     cor_obj
   }

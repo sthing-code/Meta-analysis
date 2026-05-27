@@ -232,8 +232,25 @@ is_positive_flag_gene <- function(gene) gene %in% c("IGFBP7", "LGALS1")
 is_negative_flag_gene <- function(gene) gene %in% PRIORITY_GENES$cathepsins
 
 #' Given a bacterium name and a cancer type, classify as benchmark or novel.
+#' Handles TCMbio-format names (s__Genus_species) automatically.
 flag_bacterium <- function(bacterium, cancer_type = "colon") {
   benchmarks <- BENCHMARK_BACTERIA[[cancer_type]]
   if (is.null(benchmarks)) return("novel")
-  if (bacterium %in% benchmarks) "literature-supported" else "novel"
+  plain <- normalise_species_name(bacterium)
+  genus <- strsplit(plain, " ")[[1]][1]
+  if (plain %in% benchmarks ||
+      any(grepl(paste0("^", genus, " "), benchmarks))) {
+    "literature-supported"
+  } else {
+    "novel"
+  }
+}
+
+#' Normalise a TCMbio species name to plain text for benchmark matching.
+#' Strips "s__" prefix and converts underscores to spaces.
+#' e.g. "s__Bacteroides_fragilis" -> "Bacteroides fragilis"
+normalise_species_name <- function(x) {
+  x <- sub("^s__", "", x)
+  x <- gsub("_", " ", x)
+  trimws(x)
 }
