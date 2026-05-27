@@ -139,15 +139,15 @@ depleted in CRC (protective commensals). Sources used are listed per species.
 
 | Species | Mechanism | Citation |
 |---|---|---|
-| *Fusobacterium nucleatum* | FadA adhesin activates Wnt/β-catenin; NF-κB-driven inflammation | Kostic et al., *Genome Res* 2012; Rubinstein et al., *Cell Host Microbe* 2013 |
-| *Escherichia coli* (pks⁺) | Colibactin genotoxin causes DNA double-strand breaks and chromosomal instability | Nougayrède et al., *Science* 2006; Bautista et al., 2026 |
-| *Bacteroides fragilis* (ETBF) | BFT (fragilysin) cleaves E-cadherin; activates STAT3 and Wnt signalling | Wu et al., *Nat Med* 2004; Bautista et al., 2026 |
+| *Fusobacterium nucleatum* | FadA adhesin activates Wnt/β-catenin; NF-κB-driven inflammation | Bautista et al., 2026; Dalal et al., 2021; Kostic et al., 2013; Rubinstein et al., 2013; Tahara et al., 2014;Wang et al., 2024 |
+| *Escherichia coli* (pks⁺) | Colibactin genotoxin causes DNA double-strand breaks and chromosomal instability | Bautista et al., 2026; Dalal et al., 2021; Kostic et al., 2013 |
+| *Bacteroides fragilis* (ETBF) | BFT (fragilysin) cleaves E-cadherin; activates STAT3 and Wnt signalling | Bautista et al., 2026; Dalal et al., 2021 |
 | *Streptococcus gallolyticus* | COX-2 activation; suppresses apoptosis; longstanding clinical CRC association | Dalal et al., 2021 |
 | *Enterococcus faecalis* | Extracellular ROS production; DNA damage and chromosomal instability | Dalal et al., 2021 |
 | *Peptostreptococcus anaerobius* | TLR2/TLR4 activation; elevated ROS and intracellular cholesterol; promotes dysplasia | Dalal et al., 2021; Liu et al., 2023 |
-| *Peptostreptococcus stomatis* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017 |
-| *Parvimonas micra* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017; Proctor et al., *NAR Cancer* 2021 |
-| *Solobacterium moorei* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., *Gut* 2017 |
+| *Peptostreptococcus stomatis* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., 2017 |
+| *Parvimonas micra* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., 2017; Zhao et al., 2021 |
+| *Solobacterium moorei* | Enriched in CRC tissue; part of validated metagenomic CRC signature | Yu et al., 2017 |
 | *Helicobacter pylori* | Pro-inflammatory cytokines (IL-1, IL-6, TNF-α); independent adenoma/CRC risk factor | Dalal et al., 2021 |
 | *Clostridium septicum* | α-toxin activates MAPK signalling; associated with occult colonic malignancy | Dalal et al., 2021 |
 | *Salmonella enterica* | AvrA effector activates β-catenin and STAT3; flagellin antibodies elevated in CRC | Dalal et al., 2021 |
@@ -166,15 +166,6 @@ genes and are flagged as literature-supported negative controls.
 
 ---
 
-## Publication Notes
-
-Primary goal: one comparative paper across cancer types.
-If a strong cancer-type-specific or gene-specific story emerges (e.g. same gene
-behaves directionally opposite across two cancer types), scope for a separate
-focused paper exists.
-
----
-
 ## Literature Benchmarks (Breast — BRCA)
 
 The BRCA benchmark list differs fundamentally from COAD. The dominant mechanism is **estrogen metabolism via the estrobolome** — bacteria producing β-glucuronidase, sulfatase, and hydroxysteroid dehydrogenase enzymes that reactivate conjugated oestrogens and elevate circulating hormone levels, driving hormone-receptor-positive (HR+) tumour growth. A second distinct mechanism operates specifically in triple-negative breast cancer (TNBC) via **TMAO-producing Clostridiales**, which promote antitumour immunity.
@@ -187,12 +178,12 @@ The BRCA benchmark list differs fundamentally from COAD. The dominant mechanism 
 | *Bacteroides fragilis* | Broadest estrobolome enzyme activity (β-glucuronidase + sulfatase + 3β-HSD + 17β-HSD) | Strong | Larnder et al. 2025 |
 | *Fusobacterium nucleatum* | Enriched in breast tumour tissue; pro-inflammatory; prognostic risk factor | Moderate | Sheng et al. 2024 |
 | *Lactobacillus* spp. | Enriched in breast tumour tissue; β-glucuronidase activity | Moderate | Sheng et al. 2024; Larnder et al. 2025 |
-| *Staphylococcus* spp. | Enriched in breast tumour tissue ⚠️ known sequencing contaminant — interpret with caution | Moderate/caveat | Sheng et al. 2024 |
+| *Staphylococcus* spp. | Enriched in breast tumour tissue !known sequencing contaminant! | Moderate/caveat | Sheng et al. 2024 |
 | *Ruminococcus* spp. | β-glucuronidase activity; **conflicting evidence** across cohorts | Mixed | Larnder et al. 2025; Mahno et al. 2024 |
 | *Klebsiella* spp. | β-glucuronidase activity; enriched in cases | Moderate | Mahno et al. 2024 |
 | *Citrobacter* spp. | β-glucuronidase activity; enriched in cases | Moderate | Larnder et al. 2025 |
 | *Enterobacter* spp. | β-glucuronidase activity; enriched in cases | Moderate | Larnder et al. 2025 |
-| *Sphingomonas* spp. | Enriched in breast tumour tissue; **also top IGFBP7 correlator in COAD** — cross-cancer signal of interest | Moderate | Sheng et al. 2024 |
+| *Sphingomonas* spp. | Enriched in breast tumour tissue; **also top IGFBP7 correlator in COAD** !cross-cancer signal of interest! | Moderate | Sheng et al. 2024 |
 
 ### Depleted in breast cancer (protective)
 
@@ -212,7 +203,7 @@ recruitment. Higher plasma TMAO correlates with better immunotherapy response in
 
 | Genera | Evidence | Citation |
 |---|---|---|
-| *Blautia*, *Dorea*, *Ruminococcus*, *Tyzzerella*, *Roseburia* (order Clostridiales) | TMAO → PERK ER stress → GSDME pyroptosis → CD8+ T cell immunity; n=360 TNBC cohort | Wang et al., *Cell Metabolism* 2022 |
+| *Blautia*, *Dorea*, *Ruminococcus*, *Tyzzerella*, *Roseburia* (order Clostridiales) | TMAO → PERK ER stress → GSDME pyroptosis → CD8+ T cell immunity; n=360 TNBC cohort | Wang et al., 2022 |
 
 ### Key note on conflicting evidence
 Several genera (*Ruminococcus*, *Fusobacterium*, *Prevotella*, *Faecalibacterium*, *Lactobacillus*)
