@@ -116,15 +116,29 @@ R version: ≥ 4.3.0 recommended.
 
 ## Correlation Thresholds and Flagging
 
-| Threshold | Use |
-|---|---|
-| \|r\| > 0.15 | Supplementary heatmap (broader signal) |
-| \|r\| > 0.20 | Main manuscript heatmap |
-| q < 0.05 (BH) | Significance annotation on heatmap |
+Thresholds are set per cancer type based on observed signal strength. COAD shows strong
+intratumoral microbiome–gene correlations (104 bacteria at |r| > 0.20, 561 significant pairs),
+justifying a stricter primary threshold. BRCA shows substantially weaker correlations overall
+(9 bacteria at |r| > 0.20, 57 significant pairs), which is itself a biologically meaningful
+finding — the intratumoral microbiome is less strongly coupled to the priority gene expression
+programme in breast cancer than in colon cancer. To produce an informative heatmap for BRCA,
+a relaxed primary threshold of |r| > 0.15 is used and documented transparently here.
+
+| Cancer type | Primary heatmap | Supplementary heatmap |
+|---|---|---|
+| COAD | \|r\| > 0.20 | \|r\| > 0.15 |
+| BRCA | \|r\| > 0.15 | \|r\| > 0.10 |
+| PAAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 |
+| PRAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 |
+
+PAAD and PRAD thresholds are provisional and will be confirmed after running script 04
+for those cancer types. All thresholds are defined in `R/utils.R` (`HEATMAP_THRESHOLDS`).
+
+**Significance annotation:** q < 0.05 (Benjamini-Hochberg FDR correction) on all heatmaps.
 
 **Flagging logic:**
-- IGFBP7, Galectin-1: stars on cells where r > 0.20 and q < 0.05
-- Cathepsins: stars on cells where r < −0.20 and q < 0.05
+- IGFBP7, Galectin-1: stars on cells where r > threshold and q < 0.05
+- Cathepsins: stars on cells where r < −threshold and q < 0.05
 
 ---
 

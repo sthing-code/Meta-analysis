@@ -56,6 +56,17 @@ CANCER_CONFIG <- list(
   )
 )
 
+# ── Cancer-type-specific heatmap thresholds ──────────────────────────────────
+# COAD has strong intratumoral microbiome–gene correlations; r > 0.20 is appropriate.
+# BRCA signal is weaker overall; r > 0.15 is used as the primary heatmap threshold.
+# PAAD and PRAD thresholds set to 0.15 pending data (adjust after running script 04).
+HEATMAP_THRESHOLDS <- list(
+  colon      = list(primary = 0.20, supplementary = 0.15),
+  breast     = list(primary = 0.15, supplementary = 0.10),
+  pancreatic = list(primary = 0.15, supplementary = 0.10),
+  prostate   = list(primary = 0.15, supplementary = 0.10)
+)
+
 # ── Literature-supported CRC bacteria ────────────────────────────────────────
 # Used to flag correlations as literature-supported vs novel.
 # Extend analogous lists for other cancer types as you add them.
@@ -125,10 +136,31 @@ BENCHMARK_BACTERIA <- list(
     "Ruminococcus torques"
   ),
   pancreatic = c(
+    # ── Pro-tumorigenic: oral-to-pancreas translocation ───────────────────
+    # Sheng et al. 2024; Wang et al. 2024 (K-rasG12D mouse model)
+    "Porphyromonas gingivalis",
+    # Sheng et al. 2024 — oral microbiota enriched in early PDAC precursors
     "Fusobacterium nucleatum",
-    "Malassezia globosa",      # fungal but commonly co-analysed
-    "Pseudoxanthomonas suwonensis",
-    "Streptococcus salivarius"
+    "Prevotella oris",
+    "Prevotella melaninogenica",
+    "Veillonella parvula",
+    # ── Pro-tumorigenic: gemcitabine inactivation ─────────────────────────
+    # Geller et al. Science 2017, cited in Sheng et al. 2024
+    "Mycoplasma hyorhinis",
+    # Bautista et al. 2026 — Gammaproteobacteria inactivate gemcitabine
+    # via cytidine deaminase; class-level benchmark
+    "Pseudomonas aeruginosa",     # Gammaproteobacteria representative
+    "Klebsiella pneumoniae",      # Gammaproteobacteria representative
+    # ── TMAO-producing bacteria — antitumour in PAAD ──────────────────────
+    # Liu et al. 2023; W. Zhang et al. 2024
+    # TMAO → type I IFN → DC + cytotoxic T cell activation → ICI sensitisation
+    "Blautia obeum",
+    "Dorea longicatena",
+    "Faecalibacterium prausnitzii",
+    # ── Protective benchmark ──────────────────────────────────────────────
+    # Wang et al. 2024 — attenuates P. gingivalis pro-tumorigenic effects
+    "Lactobacillus acidophilus",
+    "Lactobacillus rhamnosus"
   ),
   prostate = c(
     "Fusobacterium nucleatum",

@@ -254,15 +254,29 @@ make_heatmaps_for_cancer <- function(cancer_type) {
 
   cor_data <- readRDS(rds_in)
 
-  # Main figure: |r| > 0.20
-  draw_correlation_heatmap(cor_data$r020, cancer_type, r_threshold = 0.20)
+  # Use cancer-type-specific thresholds from utils.R
+  thresholds <- HEATMAP_THRESHOLDS[[cancer_type]]
+  primary_r  <- thresholds$primary
+  suppl_r    <- thresholds$supplementary
 
-  # Supplementary: |r| > 0.15
-  draw_correlation_heatmap(cor_data$r015, cancer_type, r_threshold = 0.15)
+  # Select the correct pre-filtered correlation object
+  primary_cor <- if (primary_r == 0.20) cor_data$r020 else cor_data$r015
+  suppl_cor   <- cor_data$r015  # supplementary always uses r015 or lower
+
+  message("  Using primary threshold: |r| > ", primary_r,
+          " | supplementary: |r| > ", suppl_r)
+
+  # Main figure
+  draw_correlation_heatmap(primary_cor, cancer_type, r_threshold = primary_r)
+
+  # Supplementary (only draw if different from primary)
+  if (primary_r != suppl_r) {
+    draw_correlation_heatmap(suppl_cor, cancer_type, r_threshold = suppl_r)
+  }
 }
 
-# make_heatmaps_for_cancer("colon")
-make_heatmaps_for_cancer("breast")
+make_heatmaps_for_cancer("colon")
+# make_heatmaps_for_cancer("breast")
 # make_heatmaps_for_cancer("pancreatic")
 # make_heatmaps_for_cancer("prostate")
 
