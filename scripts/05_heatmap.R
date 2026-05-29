@@ -275,8 +275,8 @@ make_heatmaps_for_cancer <- function(cancer_type) {
   }
 }
 
-make_heatmaps_for_cancer("colon")
-# make_heatmaps_for_cancer("breast")
+# make_heatmaps_for_cancer("colon")
+make_heatmaps_for_cancer("breast")
 # make_heatmaps_for_cancer("pancreatic")
 # make_heatmaps_for_cancer("prostate")
 

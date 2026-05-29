@@ -194,9 +194,12 @@ run_threeway_axis <- function(cancer_type, axis_name,
 # ── Run ───────────────────────────────────────────────────────────────────────
 
 run_threeway_for_cancer <- function(cancer_type) {
+  # Use cancer-type-specific primary threshold from utils.R
+  threshold <- HEATMAP_THRESHOLDS[[cancer_type]]$primary
+  message("  Three-way threshold for ", cancer_type, ": |r| > ", threshold)
   for (axis_name in names(THREEWAY_AXES)) {
     tryCatch(
-      run_threeway_axis(cancer_type, axis_name),
+      run_threeway_axis(cancer_type, axis_name, r_primary = threshold),
       error = function(e) message("  ERROR in ", axis_name, ": ", e$message)
     )
   }
