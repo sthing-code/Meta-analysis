@@ -111,8 +111,8 @@ download_tcga_project <- function(project) {
 projects_to_run <- c(
   # "TCGA-COAD"   # colon — primary analysis
   # "TCGA-BRCA"    # breast  — uncomment when extending
-  "TCGA-PAAD"  # pancreatic — uncomment when extending
-  # "TCGA-PRAD"  # prostate — uncomment when extending
+  # "TCGA-PAAD"  # pancreatic — uncomment when extending
+  "TCGA-PRAD"  # prostate — uncomment when extending
 )
 
 for (proj in projects_to_run) {

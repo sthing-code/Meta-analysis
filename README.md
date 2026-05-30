@@ -139,14 +139,18 @@ is therefore used for the main PAAD figure, consistent with the threshold applie
 |r| > 0.20 view is retained as the supplementary figure to show that the core signals survive
 the stricter filter.
 
-**PRAD** thresholds are provisional pending script 04 results.
+**PRAD** follows the same rationale as PAAD. With 497 matched samples and 32 species
+post-prevalence filter, the correlations are stable enough that |r| > 0.20 is defensible,
+but |r| > 0.15 is used as the primary threshold for cross-cancer consistency with BRCA
+and PAAD. The |r| > 0.20 view (18 species, 130 significant pairs) is retained as the
+supplementary figure. Confirmed after script 04.
 
 | Cancer type | Primary heatmap | Supplementary heatmap | Matched samples |
 |---|---|---|---|
 | COAD | \|r\| > 0.20 | \|r\| > 0.15 | 456 |
 | BRCA | \|r\| > 0.15 | \|r\| > 0.10 | 1,095 |
 | PAAD | \|r\| > 0.15 | \|r\| > 0.20 | 178 |
-| PRAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 (provisional) | TBC |
+| PRAD | \|r\| > 0.15 | \|r\| > 0.20 | 497 |
 
 All significance calls use Benjamini–Hochberg FDR correction throughout. The q < 0.05 cutoff
 applies independently of the r threshold.

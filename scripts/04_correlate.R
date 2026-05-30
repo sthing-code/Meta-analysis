@@ -125,7 +125,7 @@ correlate_cancer <- function(cancer_type) {
 
 # correlate_cancer("colon")
 # correlate_cancer("breast")
-correlate_cancer("pancreatic")
-# correlate_cancer("prostate")
+# correlate_cancer("pancreatic")
+correlate_cancer("prostate")
 
 message("\nCorrelation analysis complete.")
