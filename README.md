@@ -116,23 +116,40 @@ R version: ≥ 4.3.0 recommended.
 
 ## Correlation Thresholds and Flagging
 
-Thresholds are set per cancer type based on observed signal strength. COAD shows strong
-intratumoral microbiome–gene correlations (104 bacteria at |r| > 0.20, 561 significant pairs),
-justifying a stricter primary threshold. BRCA shows substantially weaker correlations overall
-(9 bacteria at |r| > 0.20, 57 significant pairs), which is itself a biologically meaningful
-finding — the intratumoral microbiome is less strongly coupled to the priority gene expression
-programme in breast cancer than in colon cancer. To produce an informative heatmap for BRCA,
-a relaxed primary threshold of |r| > 0.15 is used and documented transparently here.
+Thresholds are set per cancer type based on observed signal strength and sample size, and are
+defined in `R/utils.R` (`HEATMAP_THRESHOLDS`). The rationale for each cancer type is as follows.
 
-| Cancer type | Primary heatmap | Supplementary heatmap |
-|---|---|---|
-| COAD | \|r\| > 0.20 | \|r\| > 0.15 |
-| BRCA | \|r\| > 0.15 | \|r\| > 0.10 |
-| PAAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 |
-| PRAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 |
+**COAD** yields the strongest correlations in the dataset (104 bacteria at |r| > 0.20,
+561 significant pairs), justifying the strictest primary threshold.
 
-PAAD and PRAD thresholds are provisional and will be confirmed after running script 04
-for those cancer types. All thresholds are defined in `R/utils.R` (`HEATMAP_THRESHOLDS`).
+**BRCA** shows substantially weaker correlations overall (9 bacteria at |r| > 0.20,
+57 significant pairs). This is itself a biologically meaningful finding — the intratumoral
+microbiome is less strongly coupled to the priority gene expression programme in breast cancer
+than in colon cancer. A relaxed primary threshold of |r| > 0.15 is used to produce an
+informative heatmap and is documented transparently here.
+
+**PAAD** presents a different constraint: not weak correlations but a small dataset. Only 23
+species survive the prevalence filter (≥ 10% of samples) from the 178 primary tumour samples,
+compared to 178 species (COAD) and 140 species (BRCA). Applying |r| > 0.20 retains only 17
+species — a heatmap that would appear disproportionately sparse relative to the other cancer
+types and would risk obscuring biologically relevant signals with prior mechanistic support
+(e.g. *Cutibacterium acnes* cathepsin suppression; Ashida et al. 2024, Davidsson et al. 2021).
+The |r| > 0.15 primary threshold (22 species, 64 significant pairs at |r| > 0.20 and q < 0.05)
+is therefore used for the main PAAD figure, consistent with the threshold applied in BRCA. The
+|r| > 0.20 view is retained as the supplementary figure to show that the core signals survive
+the stricter filter.
+
+**PRAD** thresholds are provisional pending script 04 results.
+
+| Cancer type | Primary heatmap | Supplementary heatmap | Matched samples |
+|---|---|---|---|
+| COAD | \|r\| > 0.20 | \|r\| > 0.15 | 456 |
+| BRCA | \|r\| > 0.15 | \|r\| > 0.10 | 1,095 |
+| PAAD | \|r\| > 0.15 | \|r\| > 0.20 | 178 |
+| PRAD | \|r\| > 0.15 (provisional) | \|r\| > 0.10 (provisional) | TBC |
+
+All significance calls use Benjamini–Hochberg FDR correction throughout. The q < 0.05 cutoff
+applies independently of the r threshold.
 
 **Significance annotation:** q < 0.05 (Benjamini-Hochberg FDR correction) on all heatmaps.
 

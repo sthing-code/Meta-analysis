@@ -57,13 +57,16 @@ CANCER_CONFIG <- list(
 )
 
 # ── Cancer-type-specific heatmap thresholds ──────────────────────────────────
-# COAD has strong intratumoral microbiome–gene correlations; r > 0.20 is appropriate.
-# BRCA signal is weaker overall; r > 0.15 is used as the primary heatmap threshold.
-# PAAD and PRAD thresholds set to 0.15 pending data (adjust after running script 04).
+# COAD: strong correlations (104 bacteria at |r| > 0.20); strict primary threshold.
+# BRCA: weaker correlations overall (9 bacteria at |r| > 0.20); |r| > 0.15 primary.
+# PAAD: small dataset (n=178, 23 species post-prevalence filter); |r| > 0.15 primary
+#       consistent with BRCA. Supplementary uses the stricter |r| > 0.20 (17 species)
+#       to show core signals survive the tighter filter. Confirmed after script 04.
+# PRAD: provisional — update after running script 04.
 HEATMAP_THRESHOLDS <- list(
   colon      = list(primary = 0.20, supplementary = 0.15),
   breast     = list(primary = 0.15, supplementary = 0.10),
-  pancreatic = list(primary = 0.15, supplementary = 0.10),
+  pancreatic = list(primary = 0.15, supplementary = 0.20),
   prostate   = list(primary = 0.15, supplementary = 0.10)
 )
 

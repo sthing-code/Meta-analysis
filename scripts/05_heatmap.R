@@ -259,9 +259,11 @@ make_heatmaps_for_cancer <- function(cancer_type) {
   primary_r  <- thresholds$primary
   suppl_r    <- thresholds$supplementary
 
-  # Select the correct pre-filtered correlation object
+  # Select the correct pre-filtered correlation object.
+  # For most cancer types supplementary < primary (looser threshold).
+  # PAAD is the exception: primary = 0.15, supplementary = 0.20 (stricter view).
   primary_cor <- if (primary_r == 0.20) cor_data$r020 else cor_data$r015
-  suppl_cor   <- cor_data$r015  # supplementary always uses r015 or lower
+  suppl_cor   <- if (suppl_r  == 0.20) cor_data$r020 else cor_data$r015
 
   message("  Using primary threshold: |r| > ", primary_r,
           " | supplementary: |r| > ", suppl_r)
