@@ -294,3 +294,37 @@ PAAD has three defining microbial features distinct from COAD and BRCA:
 | Oral microbiota group (translocation) | Moderate | Pan-cancer atlas; no individual species RCT |
 | TMAO / Clostridiales antitumour | Moderate–High | PDAC mouse model; cross-validated in BRCA |
 | *Lactobacillus* protective | Moderate | Mechanistic mouse model; species unspecified |
+
+---
+
+## Literature Benchmarks (Prostate — PRAD)
+
+PRAD has a distinct microbial profile characterised by **intratumoral pathogens directly
+identified from prostate cancer tissue** via RNA-seq de novo assembly and validated by PCR
+or immunohistochemistry (Ashida et al. 2024). Unlike COAD or BRCA, the PRAD benchmark
+list does not draw from gut microbiome dysbiosis studies but from direct intratumoral
+detection. Two mechanistic axes are relevant to our priority gene panel: *C. acnes* directly
+downregulates **BRCA2** (DNA repair axis) and drives immunosuppression via **IL-6/STAT3**-
+adjacent chemokine signalling (CCL17, CCL18, PD-L1). The remaining two species have
+detection evidence only.
+
+> **Note:** *Uncultured Chroococcidiopsis* (detected in 14/20 samples, Ashida et al. 2024)
+> is excluded from this benchmark list. It is a cyanobacterium and is absent from the
+> TCMbio species namespace; it cannot be matched to any correlation row and therefore
+> provides no flagging value in the heatmaps.
+
+| # | Species | Mechanism | Confidence | Citation |
+|---|---|---|---|---|
+| 1 | *Cutibacterium acnes* | Invades prostate epithelial cells; localises in perinuclear vesicles; significantly downregulates **BRCA2**; impairs homologous recombination (BRCAness); promotes DNA double-strand breaks and genomic instability | High | Ashida et al. 2024 |
+| 2 | *Cutibacterium acnes* | Stimulates macrophage M2 polarisation; significantly upregulates **PD-L1**, **CCL17**, and **CCL18** mRNA and protein; associated with increased Tregs in tumour stroma (P = 0.0004) and tumour epithelia (P = 0.046); facilitates immune escape | High | Davidsson et al. 2021 |
+| 3 | *Moraxella osloensis* | Identified by de novo RNA-seq assembly of prostate cancer transcriptomes; validated by PCR in 20/20 PC tissue samples. No mechanistic data published. | Moderate (detection only) | Ashida et al. 2024 |
+| 4 | *Micrococcus luteus* | Identified by de novo RNA-seq assembly of prostate cancer transcriptomes; validated by PCR in 16/20 PC tissue samples. No mechanistic data published. | Moderate (detection only) | Ashida et al. 2024 |
+
+### Evidence confidence summary
+
+| Category | Confidence | Basis |
+|---|---|---|
+| *C. acnes* BRCA2/BRCAness mechanism | High | In vitro RNA-seq + γH2AX foci + HR assay; 19/20 tissue samples |
+| *C. acnes* immunosuppression mechanism | High | In vitro macrophage stimulation + cohort Treg association (n = 137) |
+| *M. osloensis* presence | Moderate | PCR validation in 20/20 samples; no mechanism established |
+| *M. luteus* presence | Moderate | PCR validation in 16/20 samples; no mechanism established |

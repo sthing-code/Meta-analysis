@@ -57,16 +57,13 @@ CANCER_CONFIG <- list(
 )
 
 # ── Cancer-type-specific heatmap thresholds ──────────────────────────────────
-# COAD: strong correlations (104 bacteria at |r| > 0.20); strict primary threshold.
-# BRCA: weaker correlations overall (9 bacteria at |r| > 0.20); |r| > 0.15 primary.
-# PAAD: small dataset (n=178, 23 species post-prevalence filter); |r| > 0.15 primary
-#       consistent with BRCA. Supplementary uses the stricter |r| > 0.20 (17 species)
-#       to show core signals survive the tighter filter. Confirmed after script 04.
-# PRAD: provisional — update after running script 04.
+# COAD has strong intratumoral microbiome–gene correlations; r > 0.20 is appropriate.
+# BRCA signal is weaker overall; r > 0.15 is used as the primary heatmap threshold.
+# PAAD and PRAD thresholds set to 0.15 pending data (adjust after running script 04).
 HEATMAP_THRESHOLDS <- list(
   colon      = list(primary = 0.20, supplementary = 0.15),
   breast     = list(primary = 0.15, supplementary = 0.10),
-  pancreatic = list(primary = 0.15, supplementary = 0.20),
+  pancreatic = list(primary = 0.15, supplementary = 0.10),
   prostate   = list(primary = 0.15, supplementary = 0.10)
 )
 
@@ -166,9 +163,22 @@ BENCHMARK_BACTERIA <- list(
     "Lactobacillus rhamnosus"
   ),
   prostate = c(
-    "Fusobacterium nucleatum",
-    "Propionibacterium acnes",  # now Cutibacterium acnes
-    "Trichomonas vaginalis"     # not a bacterium but often included
+    # ── Pro-tumorigenic: intratumoral PRAD pathogens ──────────────────────────
+    # Ashida et al. 2024 — detected in 19/20 PC tissues by IHC; invades prostate
+    # epithelial cells; localises in perinuclear vesicles; significantly
+    # downregulates BRCA2; induces homologous recombination deficiency (BRCAness).
+    # Davidsson et al. 2021 — stimulates M2 macrophage polarisation; significantly
+    # upregulates PD-L1, CCL17, CCL18; associated with increased Tregs in tumour
+    # stroma (P = 0.0004) and tumour epithelia (P = 0.046).
+    "Cutibacterium acnes",
+    # Ashida et al. 2024 — identified by de novo RNA-seq assembly; detected by
+    # PCR in 20/20 prostate cancer tissue samples. Detection evidence only.
+    "Moraxella osloensis",
+    # Ashida et al. 2024 — identified by de novo RNA-seq assembly; detected by
+    # PCR in 16/20 prostate cancer tissue samples. Detection evidence only.
+    "Micrococcus luteus"
+    # Note: Uncultured Chroococcidiopsis excluded — cyanobacterium; absent from
+    # TCMbio species namespace and will not match any benchmark flag.
   )
 )
 
